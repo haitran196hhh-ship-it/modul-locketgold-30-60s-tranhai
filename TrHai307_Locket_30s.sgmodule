@@ -1,0 +1,29 @@
+#!name=Locket Gold & Pro 30s + Đổi Khung (Trần Hải Vip 307)
+#!desc=Mở khóa Locket Gold Vĩnh Viễn, Quay Video 30s, Upload Video 30s & Mở Khóa Toàn Bộ Khung Ảnh (Overlays) — Phát triển bởi Trần Hải Vip 307
+#!author=Trần Hải Vip 307 (@TRANHAI_307)
+#!homepage=https://t.me/TRANHAI_307
+#!tgchannel=https://t.me/locketviptranhaibot
+#!moduleUrl=https://raw.githubusercontent.com/locket-bot/Locket-Gold/refs/heads/main/TrHai307_Locket_30s.sgmodule
+#!icon=https://raw.githubusercontent.com/locket-bot/Locket-Gold/refs/heads/main/icon.png
+#!howtouse=Shadowrocket
+
+[Header Rewrite]
+^https?://api\.(revenuecat|rc-backup)\.com/.+/(receipts$|subscribers/?(.*?)*$) header-del x-revenuecat-etag
+^https?://api\.(revenuecat|rc-backup)\.com/.+/(receipts$|subscribers/?(.*?)*$) header-del X-RevenueCat-ETag
+^https?://api\.(revenuecat|rc-backup)\.com/.+/(receipts$|subscribers/?(.*?)*$) header-del if-none-match
+
+[Script]
+# 1. Xóa ETag Header chống bộ nhớ đệm 304 của RevenueCat
+Locket_DeleteHeader_TrHai307 = type=http-request, pattern=^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts|subscribers), script-path=https://raw.githubusercontent.com/locket-bot/Locket-Gold/refs/heads/main/js/deleteHeader.js, timeout=60
+
+# 2. Kích hoạt Locket Gold Vĩnh Viễn + Huy Hiệu Gold (RevenueCat)
+Locket_Gold_TrHai307 = type=http-response, pattern=^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts$|subscribers\/[^/]+$), script-path=https://raw.githubusercontent.com/locket-bot/Locket-Gold/refs/heads/main/js/Locket_Gold_30s_TrHai307.js, requires-body=true, max-size=-1, timeout=60
+
+# 3. Mở khóa Quay Video 30s + Upload Video + Toàn Bộ Khung Ảnh / Caption Ẩn (Firebase Remote Config locket-4252a)
+Locket_30s_Frames_TrHai307 = type=http-response, pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+, script-path=https://raw.githubusercontent.com/locket-bot/Locket-Gold/refs/heads/main/js/Locket_Gold_30s_TrHai307.js, requires-body=true, max-size=-1, timeout=60
+
+# 4. Tùy chỉnh Khung Ảnh / Caption Màu (Overlay) khi đăng ảnh/video lên Locket (Tùy chọn)
+Locket_Custom_Overlay_TrHai307 = type=http-request, pattern=^https:\/\/api\.locketcamera\.com\/(postMomentV2|createMoment), script-path=https://raw.githubusercontent.com/locket-bot/Locket-Gold/refs/heads/main/js/Locket_Gold_30s_TrHai307.js, requires-body=true, max-size=-1, timeout=60, argument="{"enableCustomFrame":true,"frameStyle":"gold_vip","badgeText":"👑 Trần Hải Vip 307"}"
+
+[MITM]
+hostname = %APPEND%, api.revenuecat.com, api.rc-backup.com, firebaseremoteconfig.googleapis.com, api.locketcamera.com
