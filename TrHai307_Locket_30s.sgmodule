@@ -1,11 +1,6 @@
+#!url=https://raw.githubusercontent.com/haitran196hhh-ship-it/modul-locketgold-30-60s-tranhai/refs/heads/main/TrHai307_Locket_30s.sgmodule
 #!name=👑 Locket Gold 30s/60s + Khung Doraemon (TranHai307)
-#!desc=Chính chủ: Trần Hải (TranHai307) | TikTok: @trh_ltg | Mở khóa Locket Gold Vĩnh Viễn, Popup Chào Mừng, Quay Video 30s/60s Có Tiếng, Khung Tiện Ích Doraemon & Bộ Caption VIP
-#!author=TranHai307 (@trh_ltg)
-#!homepage=https://www.tiktok.com/@trh_ltg
-#!tgchannel=https://t.me/locketviptranhaibot
-#!moduleUrl=https://raw.githubusercontent.com/haitran196hhh-ship-it/modul-locketgold-30-60s-tranhai/refs/heads/main/TrHai307_Locket_30s.sgmodule
-#!icon=https://raw.githubusercontent.com/Orz-3/mini/master/Color/Locket.png
-#!howtouse=Shadowrocket
+#!desc=Chính chủ: Trần Hải (TranHai307) | TikTok: @trh_ltg | Mở khóa Locket Gold Vĩnh Viễn, Popup Chào Mừng, Quay 30s/60s Có Tiếng, Khung Doraemon & Caption VIP
 
 [Header Rewrite]
 ^https?://api\.(revenuecat|rc-backup)\.com/.+/(receipts$|subscribers/?(.*?)*$) header-del x-revenuecat-etag
@@ -13,20 +8,11 @@
 ^https?://api\.(revenuecat|rc-backup)\.com/.+/(receipts$|subscribers/?(.*?)*$) header-del if-none-match
 
 [Script]
-# 1. Xóa ETag Header chống bộ nhớ đệm 304 của RevenueCat (TranHai307 - @trh_ltg)
-Locket_DeleteHeader_TranHai307 = type=http-request, pattern=^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts|subscribers), script-path=https://raw.githubusercontent.com/haitran196hhh-ship-it/modul-locketgold-30-60s-tranhai/refs/heads/main/deleteheader.js, timeout=60
+revenuecat = type=http-response, pattern=^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts$|subscribers\/[^/]+$), script-path=https://raw.githubusercontent.com/haitran196hhh-ship-it/modul-locketgold-30-60s-tranhai/refs/heads/main/locket_gold_30s_trhai307.js, requires-body=true, max-size=-1, timeout=60
 
-# 2. Kích hoạt Locket Gold Vĩnh Viễn + Huy Hiệu Gold (RevenueCat)
-Locket_Gold_TranHai307 = type=http-response, pattern=^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts$|subscribers\/[^/]+$), script-path=https://raw.githubusercontent.com/haitran196hhh-ship-it/modul-locketgold-30-60s-tranhai/refs/heads/main/locket_gold_30s_trhai307.js, requires-body=true, max-size=-1, timeout=60
+deleteHeader = type=http-request, pattern=^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts|subscribers), script-path=https://raw.githubusercontent.com/haitran196hhh-ship-it/modul-locketgold-30-60s-tranhai/refs/heads/main/deleteheader.js, timeout=60
 
-# 3. Đổi vùng Firebase sang US để nhận đầy đủ tính năng mới (Tùy chọn)
-Locket_RegionUS_TranHai307 = type=http-request, pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/namespaces\/firebase:fetch, requires-body=true, max-size=-1, script-path=https://raw.githubusercontent.com/haitran196hhh-ship-it/modul-locketgold-30-60s-tranhai/refs/heads/main/Locket_rc_us.js, timeout=15
-
-# 4. Mở khóa Popup TranHai307 + Quay 30s/60s Có Tiếng + Khung Widget Doraemon + Caption VIP (Firebase Remote Config)
-Locket_RemoteConfig_TranHai307 = type=http-response, pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+, script-path=https://raw.githubusercontent.com/haitran196hhh-ship-it/modul-locketgold-30-60s-tranhai/refs/heads/main/locket_gold_30s_trhai307.js, requires-body=true, max-size=-1, timeout=60, argument="{\"videoSeconds\": \"60\", \"cameraRollSeconds\": \"30\", \"enableCustomFrame\": false, \"frameImageUrl\": \"https://raw.githubusercontent.com/haitran196hhh-ship-it/modul-locketgold-30-60s-tranhai/refs/heads/main/doraemon_frame.png\", \"popupImageUrl\": \"https://raw.githubusercontent.com/haitran196hhh-ship-it/modul-locketgold-30-60s-tranhai/refs/heads/main/doraemon_frame.png\", \"popupTitle\": \"Đã Taa lên Gold rồi đó nhaa 😎\", \"popupMessage\": \"Đã Taa lên Gold rồi đó nhaa , nhớ tên Trần Hải và vô follow đó nha kkkkk\", \"tiktokUsername\": \"trh_ltg\"}"
-
-# 5. Đồng bộ Khung Ảnh Tiện Ích Doraemon ngoài màn hình chính iPhone (Fetch Latest Moment)
-Locket_Widget_Sync_TranHai307 = type=http-response, pattern=^https:\/\/api\.locketcamera\.com\/(fetchLatestMomentV2|getLatestMoment|getMoment), script-path=https://raw.githubusercontent.com/haitran196hhh-ship-it/modul-locketgold-30-60s-tranhai/refs/heads/main/locket_gold_30s_trhai307.js, requires-body=true, max-size=-1, timeout=60, argument="{\"videoSeconds\": \"60\", \"cameraRollSeconds\": \"30\", \"enableCustomFrame\": false, \"frameImageUrl\": \"https://raw.githubusercontent.com/haitran196hhh-ship-it/modul-locketgold-30-60s-tranhai/refs/heads/main/doraemon_frame.png\", \"popupImageUrl\": \"https://raw.githubusercontent.com/haitran196hhh-ship-it/modul-locketgold-30-60s-tranhai/refs/heads/main/doraemon_frame.png\", \"popupTitle\": \"Đã Taa lên Gold rồi đó nhaa 😎\", \"popupMessage\": \"Đã Taa lên Gold rồi đó nhaa , nhớ tên Trần Hải và vô follow đó nha kkkkk\", \"tiktokUsername\": \"trh_ltg\"}"
+locket_rc = type=http-response, pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+, script-path=https://raw.githubusercontent.com/haitran196hhh-ship-it/modul-locketgold-30-60s-tranhai/refs/heads/main/locket_gold_30s_trhai307.js, requires-body=true, max-size=-1, timeout=60
 
 [MITM]
-hostname = %APPEND%, api.revenuecat.com, api.rc-backup.com, firebaseremoteconfig.googleapis.com, api.locketcamera.com
+hostname = %APPEND% api.revenuecat.com, api.rc-backup.com, firebaseremoteconfig.googleapis.com
