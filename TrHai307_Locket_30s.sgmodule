@@ -1,4 +1,4 @@
-#!name=👑 Locket Gold 30s/60s + Khung Doraemon (TranHai307)
+#!name=👑 Locket Gold 45s + Khung Doraemon (TranHai307)
 #!desc=Thương hiệu: TranHai307 (Trần Hải) | TikTok: @trh_ltg | Đã Taa lên Gold rồi đó nhaa , nhớ tên Trần Hải và vô follow đó nha kkkkk
 #!author=TranHai307 (@trh_ltg)
 #!homepage=https://www.tiktok.com/@trh_ltg
@@ -20,13 +20,13 @@ AND,((DOMAIN-SUFFIX,googleapis.com),(PROTOCOL,UDP)),REJECT
 
 [Script]
 # 1. Mở khóa Locket Gold Vĩnh Viễn 9999 (RevenueCat)
-revenuecat = type=http-response, pattern=^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts$|subscribers\/[^/]+$), script-path=https://raw.githubusercontent.com/haitran196hhh-ship-it/modul-locketgold-30-60s-tranhai/refs/heads/main/locket_gold_30s_trhai307.js?v=307, requires-body=true, max-size=-1, timeout=60
+revenuecat = type=http-response, pattern=^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts$|subscribers\/[^/]+$), script-path=https://raw.githubusercontent.com/haitran196hhh-ship-it/modul-locketgold-30-60s-tranhai/refs/heads/main/locket_gold_30s_trhai307.js?v=308, requires-body=true, max-size=-1, timeout=60
 
 # 2. Xóa Header ETag chống lưu đệm 304
-deleteHeader = type=http-request, pattern=^https:\/\/(api\.(revenuecat|rc-backup)\.com\/.+\/(receipts|subscribers)|firebaseremoteconfig\.googleapis\.com\/), script-path=https://raw.githubusercontent.com/haitran196hhh-ship-it/modul-locketgold-30-60s-tranhai/refs/heads/main/deleteheader.js?v=307, timeout=60
+deleteHeader = type=http-request, pattern=^https:\/\/(api\.(revenuecat|rc-backup)\.com\/.+\/(receipts|subscribers)|firebaseremoteconfig\.googleapis\.com\/), script-path=https://raw.githubusercontent.com/haitran196hhh-ship-it/modul-locketgold-30-60s-tranhai/refs/heads/main/deleteheader.js?v=308, timeout=60
 
-# 3. Bơm Full Tính Năng Locket: Popup TranHai307 (@trh_ltg), Quay 30s/60s, Thu Âm, Khung Doraemon & Caption Tiếng Việt
-locket_rc = type=http-response, pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+, script-path=https://raw.githubusercontent.com/haitran196hhh-ship-it/modul-locketgold-30-60s-tranhai/refs/heads/main/locket_gold_30s_trhai307.js?v=307, requires-body=true, max-size=-1, timeout=60
+# 3. Bơm Full Tính Năng Locket (Chuẩn long788: Video 45s, Khung 640x640 iOS, Popup TranHai307, Thu Âm & Caption VIP)
+locket_rc = type=http-response, pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+, script-path=https://raw.githubusercontent.com/haitran196hhh-ship-it/modul-locketgold-30-60s-tranhai/refs/heads/main/locket_gold_30s_trhai307.js?v=308, requires-body=true, max-size=-1, timeout=60
 
 [MITM]
 hostname = %APPEND%, api.revenuecat.com, api.rc-backup.com, firebaseremoteconfig.googleapis.com
