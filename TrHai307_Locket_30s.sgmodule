@@ -6,27 +6,16 @@
 #!moduleUrl=https://raw.githubusercontent.com/haitran196hhh-ship-it/modul-locketgold-30-60s-tranhai/refs/heads/main/TrHai307_Locket_30s.sgmodule
 #!icon=https://raw.githubusercontent.com/haitran196hhh-ship-it/modul-locketgold-30-60s-tranhai/refs/heads/main/Code_Generated_Image.png
 
-[Rule]
-AND,((PROTOCOL,UDP),(DST-PORT,443)),REJECT-NO-DROP
-AND,((DOMAIN-SUFFIX,googleapis.com),(PROTOCOL,UDP)),REJECT
-
 [Header Rewrite]
-^https?://api\.(revenuecat|rc-backup)\.com/.+/(receipts$|subscribers/?(.*?)*$) header-del x-revenuecat-etag
-^https?://api\.(revenuecat|rc-backup)\.com/.+/(receipts$|subscribers/?(.*?)*$) header-del X-RevenueCat-ETag
-^https?://api\.(revenuecat|rc-backup)\.com/.+/(receipts$|subscribers/?(.*?)*$) header-del if-none-match
-^https?://api\.(revenuecat|rc-backup)\.com/.+/(receipts$|subscribers/?(.*?)*$) header-del If-None-Match
-^https?://firebaseremoteconfig\.googleapis\.com/ header-del if-none-match
-^https?://firebaseremoteconfig\.googleapis\.com/ header-del If-None-Match
+^https?://api.revenuecat.com/.+/(receipts$|subscribers/?(.*?)*$) header-del x-revenuecat-etag
+^https?://api.revenuecat.com/.+/(receipts$|subscribers/?(.*?)*$) header-del X-RevenueCat-ETag
 
 [Script]
-# 1. Mở khóa Locket Gold Vĩnh Viễn 9999 (RevenueCat)
-revenuecat = type=http-response, pattern=^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts$|subscribers\/[^/]+$), script-path=https://raw.githubusercontent.com/haitran196hhh-ship-it/modul-locketgold-30-60s-tranhai/refs/heads/main/locket_gold_30s_trhai307.js?v=308, requires-body=true, max-size=-1, timeout=60
-
-# 2. Xóa Header ETag chống lưu đệm 304
-deleteHeader = type=http-request, pattern=^https:\/\/(api\.(revenuecat|rc-backup)\.com\/.+\/(receipts|subscribers)|firebaseremoteconfig\.googleapis\.com\/), script-path=https://raw.githubusercontent.com/haitran196hhh-ship-it/modul-locketgold-30-60s-tranhai/refs/heads/main/deleteheader.js?v=308, timeout=60
-
-# 3. Bơm Full Tính Năng Locket (Chuẩn long788: Video 45s, Khung 640x640 iOS, Popup TranHai307, Thu Âm & Caption VIP)
-locket_rc = type=http-response, pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+, script-path=https://raw.githubusercontent.com/haitran196hhh-ship-it/modul-locketgold-30-60s-tranhai/refs/heads/main/locket_gold_30s_trhai307.js?v=308, requires-body=true, max-size=-1, timeout=60
+#LocketGold - TranHai307 (@trh_ltg)
+#hostname = api.revenuecat.com, firebaseremoteconfig.googleapis.com
+revenuecat = type=http-response, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/]+$), script-path=https://raw.githubusercontent.com/haitran196hhh-ship-it/modul-locketgold-30-60s-tranhai/refs/heads/main/Locket_VIP.js, requires-body=true, max-size=-1, timeout=60
+deleteHeader = type=http-request, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers), script-path=https://raw.githubusercontent.com/haitran196hhh-ship-it/modul-locketgold-30-60s-tranhai/refs/heads/main/deleteheader.js, timeout=60
+locket_rc = type=http-response, pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+, script-path=https://raw.githubusercontent.com/haitran196hhh-ship-it/modul-locketgold-30-60s-tranhai/refs/heads/main/Locket_Unlocked.js, requires-body=true, max-size=-1, timeout=60
 
 [MITM]
-hostname = %APPEND%, api.revenuecat.com, api.rc-backup.com, firebaseremoteconfig.googleapis.com
+hostname = %APPEND%, api.revenuecat.com, firebaseremoteconfig.googleapis.com, api.rc-backup.com
