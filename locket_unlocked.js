@@ -1,8 +1,9 @@
 // ============================================================
-// Locket Remote Config Rewrite - TranHai307 Edition
+// Locket Remote Config Rewrite
 // Endpoint: firebaseremoteconfig.googleapis.com
 // Dùng cho: Loon / Quantumult X / Surge / Shadowrocket
-// Thương hiệu: TranHai307 (Trần Hải) | TikTok: @trh_ltg
+// Tác giả: @duyvinh09
+// Vui lòng khi chia sẽ hoặc lấy về, làm ơn để nguồn giúp mình. Mình cảm ơn
 // ============================================================
 
 var ua = $request.headers["User-Agent"] || $request.headers["user-agent"] || "";
@@ -54,10 +55,9 @@ if (ua.includes("Locket")) {
             title: "Lên Locket Gold rồi đó 😎",
             feature_set: [
                 {
-                     title: "Đã Taa lên Gold rồi đó nhaa , nhớ tên Trần Hải và vô follow đó nha kkkkk",
-                    body: "TikTok: @trh_ltg • Một follow của bạn là niềm vui của Trần Hải 💛",
-                    imageURL: "https://raw.githubusercontent.com/haitran196hhh-ship-it/modul-locketgold-30-60s-tranhai/refs/heads/main/Code_Generated_Image.png"
-
+                    title: "Hẹ Hẹ Hẹ ✨",
+                    body: " TRẦN HẢI NÈ MẤY EM  💛",
+                    imageURL: "okkkkkk"
                 }
             ],
             primary_button_title: "Xong",
